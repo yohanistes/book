@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Book store </title>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center">book store</h1>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <form id="bookForm">
+                    <div class="form-group">
+                        <label for="bookTitle">Title:</label>
+                        <input type="text" class="form-control" id="bookTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author:</label>
+                        <input type="text" class="form-control" id="author" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="publishDate">Publish Date:</label>
+                        <input type="date" class="form-control" id="publishDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editions">Editions:</label>
+                        <input type="number" class="form-control" id="editions" required>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block" onclick="addBook()">Add Book</button>
+                </form>
+            </div>
+
+
+            <div class="col-md-8">
+                <h4>Book List:</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Publish Date</th>
+                            <th>Editions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookList">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function addBook() {
+            let title = document.getElementById("bookTitle").value;
+            let author = document.getElementById("author").value;
+            let publishDate = document.getElementById("publishDate").value;
+            let editions = document.getElementById("editions").value;
+
+            console.log("Adding book:", { title, author, publishDate, editions });
+
+            let newRow = document.createElement("tr");
+            newRow.innerHTML = `<td>${title}</td><td>${author}</td><td>${publishDate}</td><td>${editions}</td>`;
+
+            document.getElementById("bookList").appendChild(newRow);
+
+            document.getElementById("bookForm").reset();
+        }
+    </script>
+</body>
+
+</html>
+
+</body>
+
+</html>
